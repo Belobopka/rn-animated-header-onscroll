@@ -43,7 +43,7 @@ const TransformProvider: FC<TransformProviderProps> = ({
     Animated.diffClamp(new Animated.Value(0), minHeight, maxHeight)
   );
 
-  // TODO onChangeDiffClamp;
+  // TODO onChangeDiffClamp; removeAllListeners for prev scroll
   const onChangeFocusScroll = React.useCallback(
     (
       item: Animated.AnimatedDiffClamp & {
@@ -72,7 +72,6 @@ const TransformProvider: FC<TransformProviderProps> = ({
           innerVal = scrollOffset - diff + offsetVal;
         }
 
-        console.log("innerVal", innerVal);
         diffAnimated.setValue(innerVal);
 
         Animated.timing(headerOffset, {
